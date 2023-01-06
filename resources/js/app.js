@@ -1,22 +1,19 @@
 import './bootstrap';
-import { createApp } from 'vue';
+import 'vuetify/dist/vuetify.min.css'
+import vuetify from './vuetify';
+import router from './router';
+import pinia from './pinia';
+import {createApp} from 'vue';
+import App from "./app.vue";
+import {useAuthStore} from "./stores/auth";
 
+const app = createApp(App);
 
-const app = createApp({});
+app.use(vuetify);
+app.use(router);
+app.use(pinia);
 
-import ExampleComponent from './components/ExampleComponent.vue';
-app.component('example-component', ExampleComponent);
+app.config.globalProperties.$authStore = useAuthStore();
 
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
-
-// Object.entries(import.meta.glob('./**/*.vue', { eager: true })).forEach(([path, definition]) => {
-//     app.component(path.split('/').pop().replace(/\.\w+$/, ''), definition.default);
-// });
 
 app.mount('#app');

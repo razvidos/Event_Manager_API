@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -20,8 +19,9 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@gmail.com'
         ]);
 
-//        $this->call([
-//            Seeder::class,
-//        ]);
+        $this->call([
+            UserSeeder::class,
+//            EventSeeder::class,
+        ]);
     }
 }

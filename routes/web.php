@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\SinglePageController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -17,5 +16,6 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes();
 
-Route::get('/{any}', [SinglePageController::class, 'index'])->where('any', '.*');
-
+Route::get('/', function () {
+    return view('welcome');
+});

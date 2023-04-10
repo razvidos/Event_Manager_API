@@ -1,6 +1,6 @@
 <?php
 
-//use App\Http\Controllers\EventController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -23,6 +23,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['middleware' => 'api'], function () {
     Route::apiResources([
         'users' => UserController::class,
-//        'events' => EventController::class,
+        'events' => EventController::class,
     ]);
 });
